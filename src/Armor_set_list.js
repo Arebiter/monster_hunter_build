@@ -19,37 +19,41 @@ export const ArmorSetList = ({ armorSets }) => {
         )
     }, [])
 
-    const lowRankArmorSets = (
-        lowRank === undefined ? (null) : (
-            lowRank.map(armor => {
-                return <div>
-                    {armor.name}
-                    <div className="armor-set-pieces">
-
-
-                    </div>
-                </div>
-            })
-        )
+    const selectedRank = (
+        rankSelect === false ? (lowRank) : (highRank)
     )
-
-    const highRankArmorSets = (
-        highRank === undefined ? (null) : (
-            highRank.map(armor => {
+    const rankArmorSets = (
+        selectedRank === undefined ? (null) : (
+            selectedRank.map(armor => {
+                let piecesArray = new Array(5).fill(""); //create array to have empty spaces in case not all armor pieces exist
+                for (let piece of armor.pieces) {
+                    if (piece.type === "head") {
+                        piecesArray[0] = piece;
+                    } else if (piece.type === "chest") {
+                        piecesArray[1] = piece;
+                    } else if (piece.type === "gloves") {
+                        piecesArray[2] = piece;
+                    } else if (piece.type === "waist") {
+                        piecesArray[3] = piece;
+                    } else {
+                        piecesArray[4] = piece;
+                    }
+                }
                 return <div className="armor-set">
                     {armor.name}
                     <div className="armor-set-pieces">
-                        {armor.pieces.map(piece => {
-                            return <div className="armor-set-piece-unit">{piece.type}</div>
-                        })}
+                        {piecesArray.map(piece => {
+                            return piece !== "" ? (
+                                <div className="armor-set-piece-unit">{piece.type}</div>
+                            ) : (
+                                <div className="armor-set-piece-unit">non</div>
+                            )
+                        }
+                        )}
                     </div>
                 </div>
             })
         )
-    )
-
-    const selectedRank = (
-        rankSelect === false ? (lowRankArmorSets) : (highRankArmorSets)
     )
 
     return (
@@ -64,7 +68,7 @@ export const ArmorSetList = ({ armorSets }) => {
                 <p id="role" class="org-word second">High Rank</p>
             </label>
             <div>
-                {selectedRank}
+                {rankArmorSets}
             </div>
         </div>
     )
