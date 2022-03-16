@@ -7,9 +7,9 @@ export const ArmorSetList = ({ armorSets }) => {
     const [lowRank, setLowRank] = useState();
     //high rank
     const [highRank, setHighRank] = useState();
-    // if (armorSets === "") {
-    //     return null;
-    // }
+
+    const [rankSelect, setRankSelect] = useState(false);
+
     useEffect(() => {
         setLowRank(
             armorSets.filter(armor => armor.rank === "low")
@@ -35,13 +35,23 @@ export const ArmorSetList = ({ armorSets }) => {
         )
     )
 
+    const selectedRank = (
+        rankSelect === false ? (lowRankArmorSets) : (highRankArmorSets)
+    )
+
     return (
         <div>
+            <div>Armor Sets</div>
+            <label>
+                <input type="radio" name="sort" id="role" />
+                <p id="role" class="org-word second">Low</p>
+            </label>
+            <label>
+                <input type="radio" name="sort" id="role" />
+                <p id="role" class="org-word second">High</p>
+            </label>
             <div>
-                {lowRankArmorSets}
-            </div>
-            <div>
-                {highRankArmorSets}
+                {selectedRank}
             </div>
         </div>
     )
