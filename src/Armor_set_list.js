@@ -42,14 +42,8 @@ export const ArmorSetList = ({ armorSets }) => {
     return (
         <div>
             <div>Armor Sets</div>
-            <label>
-                <input type="radio" name="sort" id="role" />
-                <p id="role" class="org-word second">Low</p>
-            </label>
-            <label>
-                <input type="radio" name="sort" id="role" />
-                <p id="role" class="org-word second">High</p>
-            </label>
+            <button onClick={() => setRankSelect(false)}>Low Rank</button>
+            <button onClick={() => setRankSelect(true)}>High Rank</button>
             <div>
                 {selectedRank}
             </div>
