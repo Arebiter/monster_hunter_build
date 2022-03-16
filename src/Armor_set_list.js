@@ -39,11 +39,19 @@ export const ArmorSetList = ({ armorSets }) => {
         rankSelect === false ? (lowRankArmorSets) : (highRankArmorSets)
     )
 
+
+
     return (
         <div>
             <div>Armor Sets</div>
-            <button onClick={() => setRankSelect(false)}>Low Rank</button>
-            <button onClick={() => setRankSelect(true)}>High Rank</button>
+            <label>
+                <input type="radio" name="sort" id="role" onClick={() => setRankSelect(false)} />
+                <p id="role" class="org-word second">Low Rank</p>
+            </label>
+            <label>
+                <input type="radio" name="sort" id="role" onClick={() => setRankSelect(true)} />
+                <p id="role" class="org-word second">High Rank</p>
+            </label>
             <div>
                 {selectedRank}
             </div>
