@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-
+import "../src/CSS_folder/Armor_set_list.scss";
 
 export const ArmorSetList = ({ armorSets }) => {
     //low rank
@@ -22,7 +22,13 @@ export const ArmorSetList = ({ armorSets }) => {
     const lowRankArmorSets = (
         lowRank === undefined ? (null) : (
             lowRank.map(armor => {
-                return <div>{armor.name}</div>
+                return <div>
+                    {armor.name}
+                    <div className="armor-set-pieces">
+
+
+                    </div>
+                </div>
             })
         )
     )
@@ -30,7 +36,14 @@ export const ArmorSetList = ({ armorSets }) => {
     const highRankArmorSets = (
         highRank === undefined ? (null) : (
             highRank.map(armor => {
-                return <div>{armor.name}</div>
+                return <div className="armor-set">
+                    {armor.name}
+                    <div className="armor-set-pieces">
+                        {armor.pieces.map(piece => {
+                            return <div className="armor-set-piece-unit">{piece.type}</div>
+                        })}
+                    </div>
+                </div>
             })
         )
     )
@@ -38,8 +51,6 @@ export const ArmorSetList = ({ armorSets }) => {
     const selectedRank = (
         rankSelect === false ? (lowRankArmorSets) : (highRankArmorSets)
     )
-
-
 
     return (
         <div>

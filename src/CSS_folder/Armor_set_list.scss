@@ -1,0 +1,16 @@
+.armor-set{
+    display: flex;
+    flex-direction: row;
+}
+
+.armor-set-pieces{
+    display: flex;
+    flex-direction: row;
+}
+
+.armor-set-piece-unit{
+    height: 20px;
+    width: 20px;
+    border: 1px solid black ;
+    margin-left: 5px;
+}
