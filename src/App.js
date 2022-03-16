@@ -2,14 +2,14 @@ import logo from './logo.svg';
 import './App.css';
 import { useState, useEffect } from "react";
 import { ArmorSetList } from './Armor_set_list';
-// import { ArmorImages } from './Armor_images';
+import { ArmorImages } from './Armor_images';
 
 function App() {
   const [armorSets, setArmorSets] = useState("");
   const [armorPieces, setArmorPieces] = useState({
     "head": "",
     "chest": "",
-    "glovess": "",
+    "gloves": "",
     "waist": "",
     "legs": ""
   })
@@ -26,17 +26,22 @@ function App() {
   }
 
   //set armor pieces
-  const chooseArmorPieces = () => {
-    //sets the armorpieces from the armor set list
-    //clicking on the armor set pieces will add the images of the piece to the armorPiece state
-    //send to ArmorImages 
+  //   //sets the armorpieces from the armor set list
+  //   //clicking on the armor set pieces will add the images of the piece to the armorPiece state
+  //   //send to ArmorImages 
+  const chooseArmorPieces = (piece) => {
+    let armorType = piece.type;
+    let newState = {};
+    newState[armorType] = piece;
+    setArmorPieces(prevState => ({ ...prevState, ...newState }));
+    console.log(armorPieces);
   }
 
   return (
     <div className="App">
       <h1>Monster Hunter World Armor Builds</h1>
       <section>
-        {/* <ArmorImages armorSets={armorSets} /> */}
+        <ArmorImages armorPieces={armorPieces} />
         <ArmorSetList armorSets={armorSets} chooseArmorPieces={chooseArmorPieces} />
         <div>Armor Piece Requirements</div>
         <div>Armor Stats</div>
