@@ -1,0 +1,29 @@
+.armor-images{
+    display: flex;
+    flex-direction: column;
+}
+
+.armor-chest-gloves-div{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.armor-piece-group{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+
+    .armor-piece-div{
+        border: 1px solid black;
+        height: 150px;
+        width: 150px;
+        
+        img{
+            height: 150px;
+            width: 150px;
+        }
+    }
+    
+}
