@@ -1,19 +1,38 @@
-.armor-set{
+.armor-sets-section{
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    max-width: 100px;
-    margin: auto;
-}
+    flex-direction: column;
+    justify-content: center;
 
-.armor-set-pieces{
-    display: flex;
-    flex-direction: row;
-}
+    .rank-choice{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
 
-.armor-set-piece-unit{
-    height: 20px;
-    width: 20px;
-    border: 1px solid black ;
-    margin-left: 20px;
+    .armor-set-list{
+        display: flex;
+        flex-direction: column;
+
+        .single-armor-set{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            max-width: 300px;
+
+            .armor-set-pieces{
+                display: flex;
+                flex-direction: row;
+                width: 75px;
+            }
+            
+            .armor-set-piece-unit{
+                height: 20px;
+                width: 20px;
+                border: 1px solid black ;
+                margin-left: 15px;
+            }
+
+        }
+        
+    }
 }
