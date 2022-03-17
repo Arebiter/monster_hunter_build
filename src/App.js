@@ -1,8 +1,9 @@
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import { useState, useEffect } from "react";
 import { ArmorSetList } from './Armor_set_list';
 import { ArmorImages } from './Armor_images';
+import { ArmorRequirements } from './Armor_requirement';
 
 function App() {
   const [armorSets, setArmorSets] = useState("");
@@ -25,7 +26,7 @@ function App() {
 
   //to show while information is fetched
   if (armorSets === "") {
-    return null
+    return <div>Loading</div>
   }
 
   //set armor pieces
@@ -37,12 +38,10 @@ function App() {
     let newState = {};
     newState[armorType] = piece;
     setArmorPieces(prevState => ({ ...prevState, ...newState }));
-    console.log(armorPieces);
   }
 
   const chooseCurrentArmorPiece = (piece) => { //shows last clicked armor piece
     setCurrentArmorPiece(prevState => ({ ...prevState, "armor": piece }));
-    console.log(currentArmorPiece);
   }
 
   const chooseArmorPiecesAndCurrentArmor = (piece) => {
@@ -56,8 +55,8 @@ function App() {
       <section>
         <ArmorImages armorPieces={armorPieces} />
         <ArmorSetList armorSets={armorSets} chooseArmorPiecesAndCurrentArmor={chooseArmorPiecesAndCurrentArmor} />
-        <div>Armor Piece Requirements</div>
-        <div>Armor Stats</div>
+        <ArmorRequirements currentArmorPiece={currentArmorPiece} />
+        {/* <div>Armor Stats</div> */}
       </section>
     </div>
   );
