@@ -4,15 +4,16 @@ import { useState, useEffect } from "react";
 import { ArmorSetList } from './Armor_set_list';
 import { ArmorImages } from './Armor_images';
 import { ArmorRequirements } from './Armor_requirement';
+import { ArmorStats } from './Armor_stats';
 
 function App() {
   const [armorSets, setArmorSets] = useState("");
   const [armorPieces, setArmorPieces] = useState({
-    "head": "",
-    "chest": "",
-    "gloves": "",
-    "waist": "",
-    "legs": ""
+    "head": null,
+    "chest": null,
+    "gloves": null,
+    "waist": null,
+    "legs": null
   })
   const [currentArmorPiece, setCurrentArmorPiece] = useState({
     "armor": ""
@@ -56,7 +57,7 @@ function App() {
         <ArmorImages armorPieces={armorPieces} />
         <ArmorSetList armorSets={armorSets} chooseArmorPiecesAndCurrentArmor={chooseArmorPiecesAndCurrentArmor} />
         <ArmorRequirements currentArmorPiece={currentArmorPiece} />
-        {/* <div>Armor Stats</div> */}
+        <ArmorStats currentArmorPiece={currentArmorPiece} armorPieces={armorPieces} />
       </section>
     </div>
   );
