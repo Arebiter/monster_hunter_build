@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import "../src/CSS_folder/Armor_set_list.scss";
 
-export const ArmorSetList = ({ armorSets, chooseArmorPieces }) => {
+export const ArmorSetList = ({ armorSets, chooseArmorPiecesAndCurrentArmor }) => {
     //low rank
     const [lowRank, setLowRank] = useState();
     //high rank
@@ -45,7 +45,7 @@ export const ArmorSetList = ({ armorSets, chooseArmorPieces }) => {
 
                         {piecesArray.map((piece, idx) => {
                             return piece !== "" ? (
-                                <div className="armor-set-piece-unit" key={`${idx}-${armor.name}-${piece.type}`} onClick={() => chooseArmorPieces(piece)}>{piece.type}</div>
+                                <div className="armor-set-piece-unit" key={`${idx}-${armor.name}-${piece.type}`} onClick={() => chooseArmorPiecesAndCurrentArmor(piece)}>{piece.type}</div>
                             ) : (
                                 <div className="armor-set-piece-unit" key={`${idx}-${armor.name}-non`}>non</div>
                             )
