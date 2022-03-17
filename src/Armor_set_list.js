@@ -39,39 +39,42 @@ export const ArmorSetList = ({ armorSets, chooseArmorPiecesAndCurrentArmor }) =>
                         piecesArray[4] = piece;
                     }
                 }
-                return <div className="armor-set" key={`${idx}-${armor.name}`}>
-                    {armor.name}
-                    <div className="armor-set-pieces">
-
-                        {piecesArray.map((piece, idx) => {
-                            return piece !== "" ? (
-                                <div className="armor-set-piece-unit" key={`${idx}-${armor.name}-${piece.type}`} onClick={() => chooseArmorPiecesAndCurrentArmor(piece)}>{piece.type}</div>
-                            ) : (
-                                <div className="armor-set-piece-unit" key={`${idx}-${armor.name}-non`}>non</div>
-                            )
-                        }
-                        )}
+                return (
+                    <div className="single-armor-set" key={`${idx}-${armor.name}`}>
+                        <div className="armor-set-name">{armor.name}</div>
+                        <div className="armor-set-pieces">
+                            {piecesArray.map((piece, idx) => {
+                                return piece !== "" ? (
+                                    <div className="armor-set-piece-unit" key={`${idx}-${armor.name}-${piece.type}`} onClick={() => chooseArmorPiecesAndCurrentArmor(piece)}>{piece.type}</div>
+                                ) : (
+                                    <div className="armor-set-piece-unit" key={`${idx}-${armor.name}-non`}>non</div>
+                                )
+                            }
+                            )}
+                        </div>
                     </div>
-                </div>
+                )
             })
         )
     )
 
     return (
-        <div>
+        <div className="armor-sets-section">
             <div>Armor Sets</div>
-            <label>
-                <input type="radio" name="sort" id="role" onClick={() => setRankSelect(false)} />
-                <p id="role" className="org-word second">Low Rank</p>
-            </label>
-            <label>
-                <input type="radio" name="sort" id="role" onClick={() => setRankSelect(true)} />
-                <p id="role" className="org-word second">High Rank</p>
-            </label >
-            <div>
+            <div className="rank-choice">
+                <label className="rank-label">
+                    <input type="radio" name="sort" id="role" onClick={() => setRankSelect(false)} />
+                    <p id="role" className="org-word second">Low Rank</p>
+                </label>
+                <label className="rank-label">
+                    <input type="radio" name="sort" id="role" onClick={() => setRankSelect(true)} />
+                    <p id="role" className="org-word second">High Rank</p>
+                </label >
+            </div>
+            <div className="armor-set-list">
                 {rankArmorSets}
             </div>
-        </div >
+        </div>
     )
 };
 
