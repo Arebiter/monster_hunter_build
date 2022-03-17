@@ -5,6 +5,8 @@ import "../src/CSS_folder/Armor_images.scss";
 
 
 export const ArmorRequirements = ({ currentArmorPiece }) => {
+    let totalCost = 0;
+
     if (currentArmorPiece.armor === "") {
         return (
             <div>
@@ -16,7 +18,7 @@ export const ArmorRequirements = ({ currentArmorPiece }) => {
                 </div>
                 <div>Armor Requirements</div>
                 <div>Materials</div>
-                <div>Required Cost</div>
+                <div>Required Cost - {totalCost} Z</div>
             </div>
         )
     }
@@ -25,7 +27,7 @@ export const ArmorRequirements = ({ currentArmorPiece }) => {
 
     const materials = (
         crafting.materials.map((material, idx) => {
-            console.log(material);
+            totalCost += (material.quantity * material.item.value)
             return (
                 <div key={`${idx}-${material.item.name}-${name}`}>
                     <div>{material.item.name}</div>
@@ -47,6 +49,7 @@ export const ArmorRequirements = ({ currentArmorPiece }) => {
             <div>
                 {materials}
             </div>
+            <div>Required Cost - {totalCost} Z</div>
         </div>
     )
 
