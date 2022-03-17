@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import "../src/CSS_folder/Armor_images.scss";
+import "../CSS_folder/Armor_images.scss";
 import { CurrentArmorStats } from './Current_armor_stats';
 import { TotalArmorStats } from './Total_armor_stats';
 

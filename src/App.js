@@ -1,10 +1,10 @@
 import logo from './logo.svg';
 import './App.scss';
 import { useState, useEffect } from "react";
-import { ArmorSetList } from './Armor_set_list';
-import { ArmorImages } from './Armor_images';
-import { ArmorRequirements } from './Armor_requirement';
-import { ArmorStats } from './Armor_stats';
+import { ArmorSetList } from './components/Armor_set_list';
+import { ArmorImages } from './components/Armor_images';
+import { ArmorRequirements } from './components/Armor_requirement';
+import { ArmorStats } from './components/Armor_stats';
 
 function App() {
   const [armorSets, setArmorSets] = useState("");
