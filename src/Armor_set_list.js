@@ -11,11 +11,16 @@ export const ArmorSetList = ({ armorSets, chooseArmorPiecesAndCurrentArmor }) =>
     const [rankSelect, setRankSelect] = useState(false);
 
     useEffect(() => {
+        const lowRankSets = armorSets.filter(armor => armor.rank === "low")
+        const lowRankAssetFilter = lowRankSets.filter(armor => armor.pieces.some(piece => piece.assets !== null))
         setLowRank(
-            armorSets.filter(armor => armor.rank === "low")
+            lowRankAssetFilter
         )
+
+        const highRankSets = armorSets.filter(armor => armor.rank === "high")
+        const highRankAssetFilter = highRankSets.filter(armor => armor.pieces.some(piece => piece.assets !== null))
         setHighRank(
-            armorSets.filter(armor => armor.rank === "high")
+            highRankAssetFilter
         )
     }, [])
 
