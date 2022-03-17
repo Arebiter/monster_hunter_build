@@ -13,6 +13,9 @@ function App() {
     "waist": "",
     "legs": ""
   })
+  const [currentArmorPiece, setCurrentArmorPiece] = useState({
+    "armor": ""
+  })
 
   useEffect(() => {
     fetch('https://mhw-db.com/armor/sets')
@@ -37,12 +40,22 @@ function App() {
     console.log(armorPieces);
   }
 
+  const chooseCurrentArmorPiece = (piece) => { //shows last clicked armor piece
+    setCurrentArmorPiece(prevState => ({ ...prevState, "armor": piece }));
+    console.log(currentArmorPiece);
+  }
+
+  const chooseArmorPiecesAndCurrentArmor = (piece) => {
+    chooseArmorPieces(piece);
+    chooseCurrentArmorPiece(piece);
+  }
+
   return (
     <div className="App">
       <h1>Monster Hunter World Armor Builds</h1>
       <section>
         <ArmorImages armorPieces={armorPieces} />
-        <ArmorSetList armorSets={armorSets} chooseArmorPieces={chooseArmorPieces} />
+        <ArmorSetList armorSets={armorSets} chooseArmorPiecesAndCurrentArmor={chooseArmorPiecesAndCurrentArmor} />
         <div>Armor Piece Requirements</div>
         <div>Armor Stats</div>
       </section>
