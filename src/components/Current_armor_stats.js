@@ -1,49 +1,54 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "../CSS_folder/Armor_images.scss";
+import "../CSS_folder/Armor_stats.scss";
 
 
 export const CurrentArmorStats = ({ currentArmorPiece }) => {
     const [currentArmorStats, setCurrentArmorStats] = useState({
-        "defense": {
-            "base": 0,
-            "max": 0,
-            "augmented": 0
-        },
-        "resistances": {
+        "defenses": {
+            "defense": 0,
             "dragon": 0,
             "fire": 0,
             "ice": 0,
             "thunder": 0,
             "water": 0,
         },
-        "rarity": 0
+        "rarity": 0,
+        "name": "-"
     })
-
     const [currentArmorSkills, setCurrentArmorSkills] = useState({
         "skills": [{
             "skillName": "-",
             "level": 0
         }]
     })
+    console.log(currentArmorPiece)
+    const armorResistanceArr = Object.keys(currentArmorStats.defenses);
+
+    const showArmorResistance = (
+        armorResistanceArr.map((stat, idx) => (
+            <div key={`${idx}-${stat}-current-defense`} className="armor-defense-type">
+                <p className="armor-defense-name">{stat === "defense" ? ("defense") : (`vs. ${stat}`)}</p>
+                <p className="armor-defense-value">{currentArmorStats.defenses[stat]}</p>
+            </div>
+        ))
+    )
 
     let newCurrentArmorStatsState = {}; //make a new object to replace the current armor stats
     const updateCurrentStats = (
         currentArmorPiece.armor !== "" ? ( //if there is a current armor chosen, fill out the object, else keep current armor stats
             newCurrentArmorStatsState = {
-                "defense": {
-                    "base": currentArmorPiece.armor.defense.base,
-                    "max": currentArmorPiece.armor.defense.max,
-                    "augmented": currentArmorPiece.armor.defense.augmented
-                },
-                "resistances": {
+                "defenses": {
+                    "defense": currentArmorPiece.armor.defense.base,
                     "dragon": currentArmorPiece.armor.resistances.dragon,
                     "fire": currentArmorPiece.armor.resistances.fire,
                     "ice": currentArmorPiece.armor.resistances.ice,
                     "thunder": currentArmorPiece.armor.resistances.thunder,
                     "water": currentArmorPiece.armor.resistances.water,
                 },
-                "rarity": currentArmorPiece.armor.rarity
+                "rarity": currentArmorPiece.armor.rarity,
+                "name": currentArmorPiece.armor.name
             }) : (currentArmorStats)
     )
 
@@ -51,7 +56,7 @@ export const CurrentArmorStats = ({ currentArmorPiece }) => {
     const updateCurrentSkills = (
         currentArmorPiece.armor !== "" ? (
             newCurrentArmorSkillsState.skills =
-            currentArmorPiece.armor.skills.map(skill => ({
+            currentArmorPiece.armor.skills.map((skill) => ({
                 "skillName": skill.skillName,
                 "level": skill.level
             }))
@@ -65,35 +70,26 @@ export const CurrentArmorStats = ({ currentArmorPiece }) => {
 
     //get stats for current armor
     const listCurrentArmorStats = (
-        <div>
-            <div>
-                <div>Rarity : {currentArmorStats.rarity}</div>
+        <div className="stats-section">
+            <div className="current-armor-name">
+                <div>{currentArmorStats.name}</div>
+                <div>Rarity {currentArmorStats.rarity}</div>
             </div>
-            <div>
-                <div>Defense</div>
-                <div>
-                    Base: {currentArmorStats.defense.base}
-                    Max: {currentArmorStats.defense.max}
-                    Augmented: {currentArmorStats.defense.augmented}
+            <div className="stats-section">
+                <div className="stats-list">
+                    {showArmorResistance}
                 </div>
             </div>
-            <div>
-                <div>Resistances</div>
-                <div>
-                    Vs. Fire: {currentArmorStats.resistances.fire}
-                    Vs. Water: {currentArmorStats.resistances.water}
-                    Vs. Thunder: {currentArmorStats.resistances.thunder}
-                    Vs. Ice: {currentArmorStats.resistances.ice}
-                    Vs. Dragon: {currentArmorStats.resistances.dragon}
-                </div>
-            </div>
-            <div>
-                <div>Skills</div>
-                <div>
+            <div className="skills-section">
+                <div className="skills-section-title">Skills</div>
+                <div className="section-skills">
                     {currentArmorSkills.skills.map(skill => (
-                        <div>
-                            <div>{skill.skillName}</div>
-                            <div>{skill.level}</div>
+                        <div className="skill">
+                            <div className="skill-name">{skill.skillName}</div>
+                            <div className="skill-level">
+                                <div>Level bar</div>
+                                <div>Level {skill.level}</div>
+                            </div>
                         </div>
                     ))}
                 </div>
