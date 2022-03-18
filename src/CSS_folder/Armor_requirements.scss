@@ -1,0 +1,35 @@
+.armor-requirement-section{
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .armor-material-section{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        .armor-material{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            height: 25px;
+        }
+    }
+
+    .armor-cost{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 30px;
+
+        .armor-money{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 10px;
+        }
+    }
+}
