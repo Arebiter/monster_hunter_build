@@ -1,19 +1,29 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import "../CSS_folder/Armor_images.scss";
+import "../CSS_folder/Armor_stats.scss";
 
 
 export const TotalArmorStats = ({ armorPieces }) => {
     const [totalStats, setTotalStats] = useState({
         "defense": 0,
-        "dragon": 0,
         "fire": 0,
-        "ice": 0,
-        "thunder": 0,
         "water": 0,
+        "thunder": 0,
+        "ice": 0,
+        "dragon": 0,
     })
 
     const armorPieceArr = Object.keys(armorPieces);
+    const totalStatsArr = Object.keys(totalStats);
+    const showTotalStats = (
+        totalStatsArr.map((stat, idx) => (
+            <div key={`${idx}-${stat}-defense`} className="armor-defense-type">
+                <p className="armor-defense-name">{stat === "defense" ? ("defense") : (`${stat} defense`)}</p>
+                <p className="armor-defense-value">{totalStats[stat]}</p>
+            </div>
+        ))
+    )
+    console.log(totalStatsArr)
     let newTotalStatState = {
         "defense": 0,
         "dragon": 0,
@@ -40,13 +50,11 @@ export const TotalArmorStats = ({ armorPieces }) => {
     ), [armorPieces])
 
     return (
-        <div>Total Stats
-            Total Defense: {totalStats.defense}
-            Total Fire Resistance {totalStats.fire}
-            Total Water Resistance {totalStats.water}
-            Total Thunder Resistance {totalStats.thunder}
-            Total Ice Resistance {totalStats.ice}
-            Total Dragon Resistance {totalStats.dragon}
+        <div className="stats-section">
+            <div className="stat-section-title">Total Defense Status</div>
+            <div className="stats-list">
+                {showTotalStats}
+            </div>
         </div>
     )
 
