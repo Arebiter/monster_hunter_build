@@ -1,0 +1,51 @@
+.armor-stats-section{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+
+.stats-section{
+    display: flex;
+    flex-direction: column;
+
+    .stats-list{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.armor-defense-type{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 30px;
+
+    .armor-defense-name{
+        text-transform: capitalize;
+    }
+}
+
+.current-armor-name{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.skills-section{
+    width: 200px;
+
+    .skill{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        
+
+        .skill-level{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+}
