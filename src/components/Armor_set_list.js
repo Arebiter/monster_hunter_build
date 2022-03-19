@@ -10,6 +10,23 @@ export const ArmorSetList = ({ armorSets, chooseArmorPiecesAndCurrentArmor }) =>
 
     const [rankSelect, setRankSelect] = useState(false);
 
+    const [selected, setSelected] = useState({
+        "head": [false, -1],
+        "chest": [false, -1],
+        "gloves": [false, -1],
+        "waist": [false, -1],
+        "legs": [false, -1]
+    })
+
+    const click = (piece, idx) => {
+        chooseArmorPiecesAndCurrentArmor(piece);
+        if (selected[piece.type][0] === false) {
+            selected[piece.type] = [true, idx];
+        } else {
+            selected[piece.type] = [false, -1];
+        }
+    }
+
     useEffect(() => {
         const lowRankSets = armorSets.filter(armor => armor.rank === "low")
         const lowRankAssetFilter = lowRankSets.filter(armor => armor.pieces.some(piece => piece.assets !== null))
@@ -52,9 +69,20 @@ export const ArmorSetList = ({ armorSets, chooseArmorPiecesAndCurrentArmor }) =>
                         <div className="armor-set-pieces">
                             {piecesArray.map((piece, idx) => {
                                 return piece !== "" ? (
-                                    <div className="armor-set-piece-unit" key={`${idx}-${armor.name}-${piece.type}`} onClick={() => chooseArmorPiecesAndCurrentArmor(piece)}>{piece.type}</div>
+                                    <div className="armor-set-piece-unit" key={`${idx}-${armor.name}-${piece.type}`}>
+                                        <img className="armor-set-piece-unit-img"
+                                            src={selected[piece.type][0] && idx === selected[piece.type][1] ? (
+                                                require(`../icons/${piece.type}_select.png`)
+                                            ) : (
+                                                require(`../icons/${piece.type}.png`)
+                                            )}
+                                            onClick={() => click(piece, `${idx}-${armor.name}-${piece.type}`)}
+                                        />
+                                    </div>
                                 ) : (
-                                    <div className="armor-set-piece-unit" key={`${idx}-${armor.name}-non`}>non</div>
+                                    <div className="armor-set-piece-unit" key={`${idx}-${armor.name}-non`}>
+                                        <img className="armor-set-piece-unit-img" src={require('../icons/no_armor.png')} />
+                                    </div>
                                 )
                             }
                             )}
