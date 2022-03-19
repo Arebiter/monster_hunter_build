@@ -53,11 +53,13 @@ function App() {
   return (
     <div className="App">
       <h1>Monster Hunter World Armor Builds</h1>
-      <section>
-        <ArmorImages armorPieces={armorPieces} />
-        <ArmorSetList armorSets={armorSets} chooseArmorPiecesAndCurrentArmor={chooseArmorPiecesAndCurrentArmor} />
-        <ArmorRequirements currentArmorPiece={currentArmorPiece} />
-        <ArmorStats currentArmorPiece={currentArmorPiece} armorPieces={armorPieces} />
+      <section className='main-component-section'>
+        <div className='component-section'>
+          <ArmorImages armorPieces={armorPieces} />
+          <ArmorSetList armorSets={armorSets} chooseArmorPiecesAndCurrentArmor={chooseArmorPiecesAndCurrentArmor} />
+          <ArmorRequirements currentArmorPiece={currentArmorPiece} />
+          <ArmorStats currentArmorPiece={currentArmorPiece} armorPieces={armorPieces} />
+        </div>
       </section>
     </div>
   );
