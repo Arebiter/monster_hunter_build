@@ -27,6 +27,8 @@ export const ArmorSetList = ({ armorSets, chooseArmorPiecesAndCurrentArmor }) =>
     const selectedRank = (
         rankSelect === false ? (lowRank) : (highRank)
     )
+
+
     const rankArmorSets = (
         selectedRank === undefined ? (null) : (
             selectedRank.map((armor, idx) => {
@@ -65,15 +67,20 @@ export const ArmorSetList = ({ armorSets, chooseArmorPiecesAndCurrentArmor }) =>
 
     return (
         <div className="armor-sets-section">
-            <div>Armor Sets</div>
+            <div className="armor-sets-border-top">
+                <img className="armor-sets-border-top-left-corner" src={require(`../icons/top_left_corner.png`)} />
+                <img className="armor-sets-border-top-line" src={require(`../icons/top_line.png`)} />
+                <img className="armor-sets-border-top-right-corner" src={require(`../icons/top_right_corner.png`)} />
+            </div>
+            <div className="title">Armor Sets</div>
             <div className="rank-choice">
                 <label className="rank-label">
-                    <input type="radio" name="sort" id="role" onClick={() => setRankSelect(false)} />
-                    <p id="role" className="org-word second">Low Rank</p>
+                    <input type="radio" name="sort" id="low-rank" checked="checked" />
+                    <p id="low-rank" className={rankSelect ? "rank-word" : "rank-word select"} onClick={() => setRankSelect(false)}>Low Rank</p>
                 </label>
                 <label className="rank-label">
-                    <input type="radio" name="sort" id="role" onClick={() => setRankSelect(true)} />
-                    <p id="role" className="org-word second">High Rank</p>
+                    <input type="radio" name="sort" id="high-rank" />
+                    <p id="high-rank" className={rankSelect ? "rank-word select" : "rank-word"} onClick={() => setRankSelect(true)}>High Rank</p>
                 </label >
             </div>
             <div className="armor-set-list">
