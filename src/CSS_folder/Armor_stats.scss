@@ -1,7 +1,7 @@
 .armor-stats-section{
+    width: 250px;
     display: flex;
     flex-direction: column;
-    width: 200px;
 }
 
 
@@ -9,17 +9,42 @@
     display: flex;
     flex-direction: column;
 
-    .stats-list{
-        display: flex;
-        flex-direction: column;
+    .stats-list-section{
+        margin-top: 0px;
+
     }
+}
+
+.stats-list{
+    display: flex;
+    flex-direction: column;
 }
 
 .armor-defense-type{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     height: 30px;
+    width: 95%;
+    position: relative;
+    margin: auto;
+    margin-bottom: 3px;
+    border-bottom: 1px dashed rgb(34, 33, 33);
+
+    .stat-icon{
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        top: 2px;
+    }
+
+    .stat-data{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-left: 35px;
+    }
 
     .armor-defense-name{
         text-transform: capitalize;
@@ -30,16 +55,22 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    width: 80%;
 }
 
 .skills-section{
-    width: 200px;
+    width: 95%;
+    margin: auto;
+    margin-top: 10px;
 
     .skill{
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        
+        margin-top: 5px;        
 
         .skill-level{
             width: 100%;
@@ -47,5 +78,39 @@
             flex-direction: row;
             justify-content: space-between;
         }
+    }
+}
+
+.stats-border-top{
+    width: 100%;
+}
+
+.border-top{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    width: inherit;
+    top:-24px;
+
+
+    img{
+        position: absolute;
+        height: 70px;
+        width: 70px;
+    }
+
+    .border-top-line{        
+        top: -10px;   
+        width: 120px;   
+        height: 70px; 
+        
+    }
+
+    .border-top-right-corner{        
+        right: -5px;
+    }
+    .border-top-left-corner{
+        left: -5px;
     }
 }
