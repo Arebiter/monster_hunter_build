@@ -1,12 +1,13 @@
-.armor-images{
+.armor-images-section{
     display: flex;
     flex-direction: column;
+    width: 350px;
 }
 
 .armor-chest-gloves-div{
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    justify-content: space-between;
 }
 
 .armor-piece-group{
