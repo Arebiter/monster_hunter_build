@@ -1,13 +1,27 @@
 .App {
-  text-align: center;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+}
 
-  section{
+.main-component-section{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 1400px;
+  margin: auto;
+
+  .component-section{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    width: 100%;
   }
-  
 }
+
+.title{
+  text-align: center;
+}
+
+
 
