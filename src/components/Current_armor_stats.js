@@ -8,29 +8,33 @@ export const CurrentArmorStats = ({ currentArmorPiece }) => {
     const [currentArmorStats, setCurrentArmorStats] = useState({
         "defenses": {
             "defense": 0,
-            "dragon": 0,
             "fire": 0,
-            "ice": 0,
-            "thunder": 0,
             "water": 0,
+            "thunder": 0,
+            "ice": 0,
+            "dragon": 0,
         },
         "rarity": 0,
         "name": "-"
     })
     const [currentArmorSkills, setCurrentArmorSkills] = useState({
-        "skills": [{
-            "skillName": "-",
-            "level": 0
-        }]
+        "skills": [
+            {
+                "skillName": "-",
+                "level": 0
+            }
+        ]
     })
-    console.log(currentArmorPiece)
-    const armorResistanceArr = Object.keys(currentArmorStats.defenses);
 
+    const armorResistanceArr = Object.keys(currentArmorStats.defenses);
     const showArmorResistance = (
         armorResistanceArr.map((stat, idx) => (
             <div key={`${idx}-${stat}-current-defense`} className="armor-defense-type">
-                <p className="armor-defense-name">{stat === "defense" ? ("defense") : (`vs. ${stat}`)}</p>
-                <p className="armor-defense-value">{currentArmorStats.defenses[stat]}</p>
+                <img className="stat-icon" src={require(`../icons/${stat}.png`)} />
+                <div className="stat-data">
+                    <p className="armor-defense-name">{stat === "defense" ? ("defense") : (`vs. ${stat}`)}</p>
+                    <p className="armor-defense-value">{currentArmorStats.defenses[stat]}</p>
+                </div>
             </div>
         ))
     )
@@ -71,17 +75,24 @@ export const CurrentArmorStats = ({ currentArmorPiece }) => {
     //get stats for current armor
     const listCurrentArmorStats = (
         <div className="stats-section">
+            <div className="stats-border-top">
+                <div className="border-top">
+                    <img className="border-top-left-corner" src={require(`../icons/top_left_corner.png`)} />
+                    <img className="border-top-line" src={require(`../icons/top_line.png`)} />
+                    <img className="border-top-right-corner" src={require(`../icons/top_right_corner.png`)} />
+                </div>
+            </div>
             <div className="current-armor-name">
                 <div>{currentArmorStats.name}</div>
                 <div>Rarity {currentArmorStats.rarity}</div>
             </div>
-            <div className="stats-section">
+            <div className="stats-list-section">
                 <div className="stats-list">
                     {showArmorResistance}
                 </div>
             </div>
             <div className="skills-section">
-                <div className="skills-section-title">Skills</div>
+                <div className="title">Skills</div>
                 <div className="section-skills">
                     {currentArmorSkills.skills.map(skill => (
                         <div className="skill">
