@@ -12,18 +12,20 @@ export const TotalArmorStats = ({ armorPieces }) => {
         "ice": 0,
         "dragon": 0,
     })
-
     const armorPieceArr = Object.keys(armorPieces);
     const totalStatsArr = Object.keys(totalStats);
     const showTotalStats = (
         totalStatsArr.map((stat, idx) => (
             <div key={`${idx}-${stat}-defense`} className="armor-defense-type">
-                <p className="armor-defense-name">{stat === "defense" ? ("defense") : (`${stat} defense`)}</p>
-                <p className="armor-defense-value">{totalStats[stat]}</p>
+                <img className="stat-icon" src={require(`../icons/${stat}.png`)} />
+                <div className="stat-data">
+                    <p className="armor-defense-name">{stat === "defense" ? ("defense") : (`${stat} defense`)}</p>
+                    <p className="armor-defense-value">{totalStats[stat]}</p>
+                </div>
             </div>
         ))
     )
-    console.log(totalStatsArr)
+
     let newTotalStatState = {
         "defense": 0,
         "dragon": 0,
@@ -50,8 +52,8 @@ export const TotalArmorStats = ({ armorPieces }) => {
     ), [armorPieces])
 
     return (
-        <div className="stats-section">
-            <div className="stat-section-title">Total Defense Status</div>
+        <div className="stats-section down">
+            <div className="title">Total Defense Status</div>
             <div className="stats-list">
                 {showTotalStats}
             </div>
