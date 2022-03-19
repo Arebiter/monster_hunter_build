@@ -9,7 +9,7 @@ export const ArmorImages = ({ armorPieces }) => {
     const { head, chest, gloves, waist, legs } = armorPieces;
 
     return (
-        <div className="armor-images">
+        <div className="armor-images-section">
             <div className="armor-piece-group">
                 <div>Head</div>
                 <div className="armor-piece-div">
