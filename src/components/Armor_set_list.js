@@ -10,21 +10,8 @@ export const ArmorSetList = ({ armorSets, chooseArmorPiecesAndCurrentArmor }) =>
 
     const [rankSelect, setRankSelect] = useState(false);
 
-    const [selected, setSelected] = useState({
-        "head": [false, -1],
-        "chest": [false, -1],
-        "gloves": [false, -1],
-        "waist": [false, -1],
-        "legs": [false, -1]
-    })
-
-    const click = (piece, idx) => {
+    const click = (piece) => {
         chooseArmorPiecesAndCurrentArmor(piece);
-        if (selected[piece.type][0] === false) {
-            selected[piece.type] = [true, idx];
-        } else {
-            selected[piece.type] = [false, -1];
-        }
     }
 
     useEffect(() => {
@@ -39,7 +26,7 @@ export const ArmorSetList = ({ armorSets, chooseArmorPiecesAndCurrentArmor }) =>
         setHighRank(
             highRankAssetFilter
         )
-    }, [])
+    }, [armorSets])
 
     const selectedRank = (
         rankSelect === false ? (lowRank) : (highRank)
@@ -69,19 +56,18 @@ export const ArmorSetList = ({ armorSets, chooseArmorPiecesAndCurrentArmor }) =>
                         <div className="armor-set-pieces">
                             {piecesArray.map((piece, idx) => {
                                 return piece !== "" ? (
-                                    <div className="armor-set-piece-unit" key={`${idx}-${armor.name}-${piece.type}`}>
+                                    <div
+                                        className="armor-set-piece-unit"
+                                        key={`${idx}-${armor.name}-${piece.type}`}
+                                        piece={piece}>
                                         <img className="armor-set-piece-unit-img"
-                                            src={selected[piece.type][0] && idx === selected[piece.type][1] ? (
-                                                require(`../icons/${piece.type}_select.png`)
-                                            ) : (
-                                                require(`../icons/${piece.type}.png`)
-                                            )}
-                                            onClick={() => click(piece, `${idx}-${armor.name}-${piece.type}`)}
-                                        />
+                                            src={require(`../icons/${piece.type}.png`)}
+                                            alt={"no armor found"}
+                                            onClick={() => click(piece)} />
                                     </div>
                                 ) : (
-                                    <div className="armor-set-piece-unit" key={`${idx}-${armor.name}-non`}>
-                                        <img className="armor-set-piece-unit-img" src={require('../icons/no_armor.png')} />
+                                    <div className="armor-set-piece-unit" key={`${idx}-${armor.name}-${piece.type}-non`}>
+                                        <img className="armor-set-piece-unit-img" src={require('../icons/no_armor.png')} alt={"no armor"} />
                                     </div>
                                 )
                             }
@@ -96,9 +82,9 @@ export const ArmorSetList = ({ armorSets, chooseArmorPiecesAndCurrentArmor }) =>
     return (
         <div className="armor-sets-section">
             <div className="armor-sets-border-top">
-                <img className="armor-sets-border-top-left-corner" src={require(`../icons/top_left_corner.png`)} />
-                <img className="armor-sets-border-top-line" src={require(`../icons/top_line.png`)} />
-                <img className="armor-sets-border-top-right-corner" src={require(`../icons/top_right_corner.png`)} />
+                <img className="armor-sets-border-top-left-corner" src={require(`../icons/top_left_corner.png`)} alt={""} />
+                <img className="armor-sets-border-top-line" src={require(`../icons/top_line.png`)} alt={""} />
+                <img className="armor-sets-border-top-right-corner" src={require(`../icons/top_right_corner.png`)} alt={""} />
             </div>
             <div className="title">Armor Sets</div>
             <div className="rank-choice">
