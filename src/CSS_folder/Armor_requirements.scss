@@ -3,25 +3,37 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-sizing: border-box;
+    border: 1px solid black;
 
-    .armor-material-section{
-        display: flex;
-        flex-direction: column;
-        width: 100%;
+    .armor-material-group{
+        margin-top: 30px;
+        width: 90%;
 
-        .armor-material{
+        .armor-material-section{
             display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            height: 25px;
+            flex-direction: column;
+            width: 100%;
+            margin-top: 10px;
+
+    
+            .armor-material{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                height: 30px;
+                background-color: gray;
+                margin-top: 10px;
+            }
         }
     }
+
 
     .armor-cost{
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        width: 100%;
+        width: 80%;
         margin-top: 30px;
 
         .armor-money{
@@ -30,6 +42,139 @@
             justify-content: space-between;
             width: 100%;
             margin-top: 10px;
+
+            img{
+                height: 20px;
+                width: 20px;
+            }
         }
+    }
+}
+
+.down{
+    margin-top: 20px;
+}
+
+
+.requirement-border-top{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    width: inherit;
+    top:-18px;
+
+    img{
+        position: absolute;
+        height: 100px;
+        width: 100px;
+    }
+
+    .requirement-border-top-right{            
+        top: -30px;    
+        right: 15px; 
+        width: 70px;     
+    }
+    .requirement-border-top-left{           
+        top: -30px;  
+        left: 15px; 
+        width: 70px;       
+    }
+    .requirement-border-top-center{        
+        top: -28.3px;        
+    }
+
+    .requirement-border-top-right-corner{        
+        right: -45px;
+        top: -27.3px;
+    }
+    .requirement-border-top-left-corner{
+        left: -45px;
+        top: -27.3px;
+    }
+}
+
+.requirement-border-mid{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    width: inherit;
+
+    img{
+        position: absolute;
+        height: 70px;
+        width: 70px;
+    }
+
+    .requirement-border-top-line{        
+        top: -10px;   
+        width: 120px;   
+        height: 70px;         
+    }
+
+    .requirement-border-top-right-corner{        
+        right: -5px;       
+    }
+    .requirement-border-top-left-corner{
+        left: -5px;
+    }
+}
+
+.requirement-border-bot{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    width: inherit;
+
+
+    img{
+        position: absolute;
+        height: 70px;
+        width: 70px;
+    }
+
+    .requirement-border-top-line{        
+        top: -10px;   
+        width: 120px;   
+        height: 70px;         
+    }
+
+    .requirement-border-top-right-corner{        
+        right: -5px;       
+    }
+    .requirement-border-top-left-corner{
+        left: -5px;
+    }
+}
+
+.requirement-border-under{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    width: inherit;
+
+
+    img{
+        position: absolute;
+        height: 70px;
+        width: 70px;
+    }
+
+    .requirement-border-top-line{        
+        top: -18px;   
+        width: 235px;   
+        height: 70px;         
+    }
+
+    .requirement-border-top-right-corner{        
+        right: -33px;
+        top: -20px;
+    }
+    .requirement-border-top-left-corner{
+        left: -33px;
+        top: -20px;
     }
 }
