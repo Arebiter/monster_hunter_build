@@ -48,7 +48,7 @@ export const ArmorRequirements = ({ currentArmorPiece }) => {
                 <img className="requirement-border-top-right-corner" src={require(`../icons/alt_top_right_corner.png`)} />
             </div>
             <div className="armor-piece-group down">
-                <div>{armorName.name}</div>
+                <div className="armor-piece-name">{armorName.name}</div>
                 <div className="armor-piece-div">
                     <img src={armorPic.image} />
                 </div>
