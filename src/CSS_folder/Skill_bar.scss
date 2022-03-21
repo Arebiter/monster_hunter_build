@@ -1,0 +1,24 @@
+.skill-bar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .skill-bar-start{
+        height: 17px;
+        width: 17px;
+
+        img{
+            height: 17px;
+            width: 17px; 
+        }
+        
+    }
+
+    .skill-box{
+        height: 15px;
+        width: 18px;
+        background-color: #9f8940;
+        margin-right: 3px;
+        border-radius: 2px;
+    }
+}
