@@ -3,8 +3,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-sizing: border-box;
-    border: 1px solid black;
+    background-color: rgba(0, 0, 0, 0.62);
+    box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.62);
+    max-height: 820px;
 
     .armor-material-group{
         margin-top: 30px;
@@ -159,22 +160,22 @@
 
     img{
         position: absolute;
-        height: 70px;
-        width: 70px;
+        height: 100px;
+        width: 100px;
     }
 
     .requirement-border-top-line{        
-        top: -18px;   
-        width: 235px;   
-        height: 70px;         
+        top: -31px;   
+        width: 227px;   
+        height: 100px;         
     }
 
     .requirement-border-top-right-corner{        
-        right: -33px;
-        top: -20px;
+        right: -44px;
+        top: -33.3px;
     }
     .requirement-border-top-left-corner{
-        left: -33px;
-        top: -20px;
+        left: -44px;
+        top: -33.3px;
     }
 }
