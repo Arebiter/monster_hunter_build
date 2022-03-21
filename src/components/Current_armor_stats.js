@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import "../CSS_folder/Armor_images.scss";
 import "../CSS_folder/Armor_stats.scss";
+import { SkillLevelBar } from "./Skill_level_bar";
 
 
 export const CurrentArmorStats = ({ currentArmorPiece }) => {
@@ -98,7 +99,7 @@ export const CurrentArmorStats = ({ currentArmorPiece }) => {
                         <div className="skill">
                             <div className="skill-name">{skill.skillName}</div>
                             <div className="skill-level">
-                                <div>Level bar</div>
+                                <SkillLevelBar skillLevel={skill.level} />
                                 <div>Level {skill.level}</div>
                             </div>
                         </div>
