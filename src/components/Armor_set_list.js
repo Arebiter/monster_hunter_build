@@ -86,17 +86,22 @@ export const ArmorSetList = ({ armorSets, chooseArmorPiecesAndCurrentArmor }) =>
                 <img className="armor-sets-border-top-line" src={require(`../icons/top_line.png`)} alt={""} />
                 <img className="armor-sets-border-top-right-corner" src={require(`../icons/top_right_corner.png`)} alt={""} />
             </div>
-            <div className="title">Armor Sets</div>
+            <div className="title armor-sets">Armor Sets</div>
             <div className="rank-choice">
                 <label className="rank-label">
-                    <p id="low-rank" className={rankSelect ? "rank-word" : "rank-word select"} onClick={() => setRankSelect(false)}>Low Rank</p>
+                    <p className={rankSelect ? "rank-word" : "rank-word select"} onClick={() => setRankSelect(false)}>Low Rank</p>
                 </label>
                 <label className="rank-label">
-                    <p id="high-rank" className={rankSelect ? "rank-word select" : "rank-word"} onClick={() => setRankSelect(true)}>High Rank</p>
-                </label >
+                    <p className={rankSelect ? "rank-word select" : "rank-word"} onClick={() => setRankSelect(true)}>High Rank</p>
+                </label>
             </div>
             <div className="armor-set-list">
                 {rankArmorSets}
+            </div>
+            <div className="set-list-border-under">
+                <img className="requirement-border-top-left-corner" src={require(`../icons/bottom_left_corner.png`)} />
+                <img className="requirement-border-top-line" src={require(`../icons/top_line.png`)} />
+                <img className="requirement-border-top-right-corner" src={require(`../icons/bottom_right_corner.png`)} />
             </div>
         </div>
     )
